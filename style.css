@@ -300,13 +300,3 @@ section{
     }
 }
 
-/* Fix for About and Skills pages scrolling */
-body.page-content {
-    overflow-y: auto !important;
-    height: auto !important;
-}
-
-section {
-    height: auto !important;
-    min-height: 90vh !important;
-}
