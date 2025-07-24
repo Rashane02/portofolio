@@ -99,12 +99,14 @@
         .about-additional {
             margin-top: 3rem;
             text-align: center;
+            width: 100%;
         }
         
         .about-additional h3 {
             font-size: 2rem;
             color: rgb(25,25,112);
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
         }
         
         .about-additional h3 span {
@@ -114,25 +116,33 @@
         .interests {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 1.5rem;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 0 1rem;
         }
         
         .interest-tag {
             background: rgba(30,144,255, 0.1);
             color: rgb(25,25,112);
-            padding: 0.5rem 1rem;
+            padding: 1rem 0.5rem;
             border-radius: 25px;
             border: 2px solid rgba(30,144,255, 0.3);
             font-weight: 500;
             transition: 0.3s ease;
+            white-space: nowrap;
+            flex: 1;
+            text-align: center;
+            min-width: 0;
         }
         
         .interest-tag:hover {
             background: rgb(30,144,255);
             color: white;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30,144,255, 0.3);
         }
         
         @media (max-width: 884px) {
@@ -152,12 +162,29 @@
             }
             
             .interests {
-                gap: 0.5rem;
+                flex-wrap: wrap;
+                gap: 0.8rem;
+                justify-content: center;
             }
             
             .interest-tag {
                 font-size: 0.9rem;
-                padding: 0.4rem 0.8rem;
+                padding: 0.6rem 1rem;
+                flex: none;
+                min-width: calc(50% - 0.4rem);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .interests {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .interest-tag {
+                min-width: 80%;
+                font-size: 0.85rem;
+                padding: 0.5rem 0.8rem;
             }
         }
     </style>
@@ -172,9 +199,12 @@
                 <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></div>
                 <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="about.html">About</a></div>
                 <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="skills.html">Skills</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"><a href="services.html">Services</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="blogs.html">Blogs</a></div>
-                <div class="link contact-btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600"><a href="contact.html">Contact Us</a></div>
+                <!-- <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"><a href="services.html">Services</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="blogs.html">Blogs</a></div> -->
+                <div class="link contact-btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+  <a href="mailto:rashanefernando@gmail.com">Connect with me</a>
+</div>
+
             </div>
             <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
         </div>
@@ -183,9 +213,9 @@
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="skills.html">Skills</a>
-                <a href="services.html">Services</a>
-                <a href="blogs.html">Blogs</a>
-                <a href="contact.html">Contact Us</a>
+                <!-- <a href="services.html">Services</a>
+                <a href="blogs.html">Blogs</a> -->
+                <a href="contact.html">Connect with me</a>
                 <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
             </div>
         </div>
@@ -201,12 +231,12 @@
                 <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
                     Currently pursuing my degree in Biomedical Engineering, I focus on developing cutting-edge solutions in wearable devices and integrating machine learning into healthcare systems. My goal is to bridge the gap between technology and healthcare to create meaningful impact.
                 </p>
-                <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                <!-- <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
                     When I'm not studying or working on projects, I enjoy staying updated with the latest technological advancements, contributing to open-source projects, and sharing knowledge through my blog. I believe in continuous learning and innovation.
                 </p>
                 <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
                     My vision is to revolutionize healthcare through technology, making medical solutions more accessible, efficient, and personalized for everyone around the world.
-                </p>
+                </p> -->
             </div>
             <div class="about-image" data-aos="zoom-in-left" data-aos-duration="1500">
                 <img src="main.jpg" alt="Rashane Fernando">
@@ -215,20 +245,12 @@
         
         <div class="about-stats" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
             <div class="stat-item">
-                <div class="stat-number">25+</div>
+                <div class="stat-number">5+</div>
                 <div class="stat-label">Projects Completed</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">3+</div>
+                <div class="stat-number">2+</div>
                 <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">Blog Articles</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100+</div>
-                <div class="stat-label">GitHub Commits</div>
             </div>
         </div>
         
@@ -236,13 +258,9 @@
             <h3>My <span>Interests</span></h3>
             <div class="interests">
                 <div class="interest-tag">Machine Learning</div>
-                <div class="interest-tag">Wearable Technology</div>
+                <div class="interest-tag">Wearable Devices</div>
                 <div class="interest-tag">Signal Processing</div>
                 <div class="interest-tag">Medical Imaging</div>
-                <div class="interest-tag">IoT Healthcare</div>
-                <div class="interest-tag">Data Analytics</div>
-                <div class="interest-tag">Web Development</div>
-                <div class="interest-tag">Open Source</div>
             </div>
         </div>
     </section>
