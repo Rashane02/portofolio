@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <title>About - Rashane Fernando</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        /* Override main CSS for scrolling */
+        body {
+            overflow-y: auto !important;
+            height: auto !important;
+        }
+        
+        section {
+            height: auto !important;
+            min-height: 90vh !important;
+        }
+        
+        .about-section {
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: calc(90vh - 4rem);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: rgb(25,25,112);
+            margin-bottom: 1rem;
+        }
+        
+        .about-text h2 span {
+            color: rgb(30,144,255);
+            text-shadow: 0 0 5px rgba(30,144,255, 0.3);
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(25,25,112, 0.8);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(30,144,255,0.2);
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(30,144,255, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(30,144,255, 0.2);
+            transition: 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(30,144,255, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: rgb(30,144,255);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: rgb(25,25,112);
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .about-additional {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .about-additional h3 {
+            font-size: 2rem;
+            color: rgb(25,25,112);
+            margin-bottom: 1rem;
+        }
+        
+        .about-additional h3 span {
+            color: rgb(30,144,255);
+        }
+        
+        .interests {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .interest-tag {
+            background: rgba(30,144,255, 0.1);
+            color: rgb(25,25,112);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            border: 2px solid rgba(30,144,255, 0.3);
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+        
+        .interest-tag:hover {
+            background: rgb(30,144,255);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 884px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .about-text h2 {
+                font-size: 2rem;
+            }
+            
+            .interests {
+                gap: 0.5rem;
+            }
+            
+            .interest-tag {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1000">
+                <span>Rashane Fernando</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="about.html">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="skills.html">Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"><a href="services.html">Services</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="blogs.html">Blogs</a></div>
+                <div class="link contact-btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600"><a href="contact.html">Contact Us</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="services.html">Services</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="contact.html">Contact Us</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="about-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 data-aos="fade-right" data-aos-duration="1000">About <span>Me</span></h2>
+                <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    I'm a passionate Biomedical Engineering undergraduate with a deep interest in creating innovative healthcare solutions. My journey combines technical expertise with a genuine desire to improve human health through technology.
+                </p>
+                <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    Currently pursuing my degree in Biomedical Engineering, I focus on developing cutting-edge solutions in wearable devices and integrating machine learning into healthcare systems. My goal is to bridge the gap between technology and healthcare to create meaningful impact.
+                </p>
+                <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+                    When I'm not studying or working on projects, I enjoy staying updated with the latest technological advancements, contributing to open-source projects, and sharing knowledge through my blog. I believe in continuous learning and innovation.
+                </p>
+                <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+                    My vision is to revolutionize healthcare through technology, making medical solutions more accessible, efficient, and personalized for everyone around the world.
+                </p>
+            </div>
+            <div class="about-image" data-aos="zoom-in-left" data-aos-duration="1500">
+                <img src="main.jpg" alt="Rashane Fernando">
+            </div>
+        </div>
+        
+        <div class="about-stats" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
+            <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Blog Articles</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">GitHub Commits</div>
+            </div>
+        </div>
+        
+        <div class="about-additional" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
+            <h3>My <span>Interests</span></h3>
+            <div class="interests">
+                <div class="interest-tag">Machine Learning</div>
+                <div class="interest-tag">Wearable Technology</div>
+                <div class="interest-tag">Signal Processing</div>
+                <div class="interest-tag">Medical Imaging</div>
+                <div class="interest-tag">IoT Healthcare</div>
+                <div class="interest-tag">Data Analytics</div>
+                <div class="interest-tag">Web Development</div>
+                <div class="interest-tag">Open Source</div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({offset:0});
+    </script>
+    <script>
+        function hamburg(){
+            const navbar = document.querySelector(".dropdown")
+            navbar.style.transform = "translateY(0px)"
+        }
+        function cancel(){
+            const navbar = document.querySelector(".dropdown")
+            navbar.style.transform = "translateY(-500px)"
+        }
+    </script>
+</body>
+</html>

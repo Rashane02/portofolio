@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <title>Skills - Rashane Fernando</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        /* Override main CSS for scrolling */
+        body {
+            overflow-y: auto !important;
+            height: auto !important;
+        }
+        
+        section {
+            height: auto !important;
+            min-height: 90vh !important;
+        }
+        
+        .skills-section {
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: calc(90vh - 4rem);
+        }
+        
+        .skills-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .skills-header h2 {
+            font-size: 2.5rem;
+            color: rgb(25,25,112);
+            margin-bottom: 1rem;
+        }
+        
+        .skills-header span {
+            color: rgb(30,144,255);
+            text-shadow: 0 0 5px rgba(30,144,255, 0.3);
+        }
+        
+        .skills-header p {
+            font-size: 1.2rem;
+            color: rgba(25,25,112, 0.7);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .skill-category {
+            background: rgba(30,144,255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid rgba(30,144,255, 0.2);
+            transition: 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(30,144,255, 0.2);
+        }
+        
+        .skill-category h3 {
+            color: rgb(30,144,255);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            color: rgb(25,25,112);
+            font-weight: 500;
+        }
+        
+        .skill-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(25,25,112, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, rgb(30,144,255), rgb(53, 53, 236));
+            border-radius: 5px;
+            transition: width 2s ease-in-out;
+            position: relative;
+        }
+        
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .additional-skills {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .additional-skills h3 {
+            font-size: 2rem;
+            color: rgb(25,25,112);
+            margin-bottom: 2rem;
+        }
+        
+        .additional-skills h3 span {
+            color: rgb(30,144,255);
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .skill-tag {
+            background: rgba(30,144,255, 0.1);
+            color: rgb(25,25,112);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            border: 2px solid rgba(30,144,255, 0.3);
+            font-weight: 500;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .skill-tag:hover {
+            background: rgb(30,144,255);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(30,144,255, 0.3);
+        }
+        
+        @media (max-width: 884px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .skill-category {
+                padding: 1.5rem;
+            }
+            
+            .skills-header h2 {
+                font-size: 2rem;
+            }
+            
+            .skill-tags {
+                gap: 0.5rem;
+            }
+            
+            .skill-tag {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1000">
+                <span>Rashane Fernando</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="index.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"><a href="about.html">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"><a href="skills.html">Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"><a href="services.html">Services</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500"><a href="blogs.html">Blogs</a></div>
+                <div class="link contact-btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600"><a href="contact.html">Contact Us</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="skills.html">Skills</a>
+                <a href="services.html">Services</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="contact.html">Contact Us</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="skills-section">
+        <div class="skills-header">
+            <h2 data-aos="fade-up" data-aos-duration="1000">My <span>Skills</span></h2>
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Technologies and tools I work with to create innovative solutions</p>
+        </div>
+        
+        <div class="skills-container">
+            <div class="skill-category" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">
+                <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Python</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>MATLAB</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>C++</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>JavaScript</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>R</span>
+                        <span>65%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>TensorFlow</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>PyTorch</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Scikit-learn</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>OpenCV</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Keras</span>
+                        <span>78%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 78%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="500">
+                <h3><i class="fas fa-heartbeat"></i> Biomedical Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Signal Processing</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Medical Imaging</span>
+                        <span>82%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 82%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Arduino/Raspberry Pi</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>LabVIEW</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Simulink</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="600">
+                <h3><i class="fas fa-globe"></i> Web Technologies</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>HTML/CSS</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>React</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Node.js</span>
+                        <span>65%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Database Management</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Flask/Django</span>
+                        <span>68%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 68%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="700">
+                <h3><i class="fas fa-chart-line"></i> Data Science</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>NumPy</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Pandas</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Matplotlib/Seaborn</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Jupyter Notebooks</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Statistical Analysis</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="800">
+                <h3><i class="fas fa-tools"></i> Development Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Git/GitHub</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>VS Code</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Docker</span>
+                        <span>60%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 60%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Linux/Terminal</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Postman/API Testing</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="additional-skills" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900">
+            <h3>Additional <span>Competencies</span></h3>
+            <div class="skill-tags">
+                <div class="skill-tag">3D Printing</div>
+                <div class="skill-tag">CAD Design</div>
+                <div class="skill-tag">PCB Design</div>
+                <div class="skill-tag">Prototyping</div>
+                <div class="skill-tag">Cloud Computing</div>
+                <div class="skill-tag">IoT Development</div>
+                <div class="skill-tag">Mobile App Dev</div>
+                <div class="skill-tag">Technical Writing</div>
+                <div class="skill-tag">Project Management</div>
+                <div class="skill-tag">Team Leadership</div>
+                <div class="skill-tag">Research</div>
+                <div class="skill-tag">Quality Assurance</div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({offset:0});
+    </script>
+    <script>
+        function hamburg(){
+            const navbar = document.querySelector(".dropdown")
+            navbar.style.transform = "translateY(0px)"
+        }
+        function cancel(){
+            const navbar = document.querySelector(".dropdown")
+            navbar.style.transform = "translateY(-500px)"
+        }
+    </script>
+</body>
+</html>
